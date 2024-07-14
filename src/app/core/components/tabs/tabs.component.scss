@@ -1,0 +1,25 @@
+#container{
+    display: flex;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    height: 80px;
+}
+
+.tab{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: 100ms ease-in-out;
+    svg{
+        display: block;
+        margin: auto;
+        transition: 100ms ease-in-out;
+    }
+}
+
+.seleccionado{
+    background-color: rgb(151, 207, 245);
+}
