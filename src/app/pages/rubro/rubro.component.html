@@ -2,6 +2,7 @@
 <div id="conteiner-productos" >
     <app-tarjeta-producto 
     *ngFor="let producto of productos"
-    [producto]="producto">
+    [producto]="producto"
+    [routerLink]="['/articulo',producto.id]">
 </app-tarjeta-producto>
 </div>

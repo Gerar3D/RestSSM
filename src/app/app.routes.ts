@@ -13,7 +13,7 @@ export const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: "articulo",
+        path: "articulo/:id",
         component: ArticuloComponent
     },
     {
