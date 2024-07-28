@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Output, signal, EventEmitter } from '@angular/core';
+import { Component, Output, signal, EventEmitter, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -10,10 +10,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './contador-cantidad.component.html',
   styleUrl: './contador-cantidad.component.scss'
 })
-export class ContadorCantidadComponent {
+export class ContadorCantidadComponent implements OnInit {
+  ngOnInit(): void {
+    this.numero.set(this.cantidadInicial)
+  }
 
   numero = signal(1);
   @Output() cantidadCambiada = new EventEmitter<number>();
+  @Input() cantidadInicial =1;
 
   actualizarNumero(diferencia:number){
     this.numero.set(Math.max(this.numero()+diferencia,1));
