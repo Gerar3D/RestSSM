@@ -1,7 +1,7 @@
 
 <div id="conteiner-productos" >
     <app-tarjeta-producto 
-    *ngFor="let producto of productos"
+    *ngFor="let producto of productos()"
     [producto]="producto"
     [routerLink]="['/articulo',producto.id]">
 </app-tarjeta-producto>

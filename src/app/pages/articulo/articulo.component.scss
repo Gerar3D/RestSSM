@@ -43,6 +43,7 @@ textarea{
     background-color: variables.$color-principal-claro;
     margin-top: 10px;
     width: 100%;
+    resize: none;
 }
 
 #cantidad-container{

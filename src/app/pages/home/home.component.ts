@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { HeaderService } from '../../core/services/header.service';
 import { CategoriasService } from '../../core/services/categorias.service';
 import { Categoria } from '../../core/interface/categorias';
@@ -16,13 +16,13 @@ import { RouterLink, RouterModule } from '@angular/router';
 export class HomeComponent implements OnInit, OnDestroy {
   headerService = inject(HeaderService);
   categoriasService = inject(CategoriasService);
-  categorias:Categoria[] = [];
+  categorias:WritableSignal<Categoria[]> = signal([]);
   
   
   ngOnInit(): void {
     this.headerService.titulo.set("Home");
     this.headerService.extendido.set(true);
-    this.categoriasService.getAll().then(res => this.categorias = res);
+    this.categoriasService.getAll().then(res => this.categorias.set(res));
   }
   
   ngOnDestroy(): void {
